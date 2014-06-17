@@ -1,0 +1,27 @@
+
+前提需求：
+    使用linux redhat 6.2系统部署
+    需要使用YUM安装，请自行配置
+
+1. 需要安装pyssh
+    下载和源码地址： trac.pyindex.com/pyssh
+
+2. 需要使用rpmbuild工具：
+    $ yum install python-setup*
+    $ yum install rpm-build
+
+3. 首先需要安装 svn 服务器
+    $ yum remove subversion*
+    $ yum localinstall subversion-1.7.5-1.x86_64.rpm
+
+4. 配置APACHE支持svn
+    在第一步第二行命令中，已经安装了http支持svn的包，需要做一下配置,使得apache支持svn版本库服务器
+
+    拷贝  pysvn.conf 到 /etc/httpd/conf.d/pysvn.con
+    然后重启服务， 没有报错，就可以了。
+
+5. 测试
+    $ python
+    >>> import pysvn
+    如果不报错， 就可以了
+

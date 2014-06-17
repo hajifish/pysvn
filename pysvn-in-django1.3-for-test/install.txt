@@ -1,0 +1,24 @@
+
+
+首先， 需要安装apache
+其次，需要安装django1.3.1
+最后，安装pysvn
+
+其中网站部署的的apache.conf配置文件参考如下：
+
+<Location "/">
+    SetHandler python-program
+    PythonHandler django.core.handlers.modpython
+    SetEnv DJANGO_SETTINGS_MODULE mytest.settings
+    PythonOption django.root /
+    PythonDebug On
+    PythonPath "['/var/www/html'] + sys.path"
+</Location>
+
+请将以上代码放到： /etc/httpd/conf.d/test-pysvn.conf
+
+然后重启服务， 在浏览器打开 http://127.0.0.1/svnserver/  能进入到授权就可以了
+
+需要注意的是：
+    1. 需要先参考pysvn的安装， 完成pysvn的安装
+    2. 将django工程mytest/放到/var/www/html/ 下面就可以了

@@ -1,0 +1,8 @@
+
+用于测试pysvn的代码，使用django1.3框架， 运行在apache下；
+
+主要目的是：
+    1. svn版本库使用http方式， 那么apache的权限是需要注意的一个部分， 需要apache的环境来
+测试pysvn，是否在apache权限下良好运行
+    2. pysvn是一个python的开发库，用于使用python来控制svn版本库的常用操作， 所有需要一个
+测试网站来运行
